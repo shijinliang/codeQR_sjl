@@ -1,5 +1,11 @@
 ﻿package com.allen.qrcode;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.banner.AdSize;
+import net.youmi.android.banner.AdView;
+import net.youmi.android.offers.OffersManager;
+import net.youmi.android.spot.SpotDialogListener;
+import net.youmi.android.spot.SpotManager;
 import android.app.Activity;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -30,7 +36,14 @@ public class ShowActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show);
 		
+		AdManager.getInstance(this).init(Constants.APPId, Constants.appSecret, false);
+		OffersManager.getInstance(this).onAppLaunch();
 		
+		SpotManager.getInstance(this).loadSpotAds();
+		// 插屏出现动画效果，0:ANIM_NONE为无动画，1:ANIM_SIMPLE为简单动画效果，2:ANIM_ADVANCE为高级动画效果
+		SpotManager.getInstance(this).setAnimationType(SpotManager.ANIM_ADVANCE);
+		// 设置插屏动画的横竖屏展示方式，如果设置了横屏，则在有广告资源的情况下会是优先使用横屏图。
+		SpotManager.getInstance(this).setSpotOrientation(SpotManager.ORIENTATION_PORTRAIT);
 
 		initView();
 		initIntent();
@@ -44,8 +57,6 @@ public class ShowActivity extends BaseActivity {
 		btn_TEXT = (Button) findViewById(R.id.text_button);
 		btnMore = (Button) findViewById(R.id.btn_set);
 		iamgeTV = (TextView) findViewById(R.id.image_title);
-
-		miniLayout = (LinearLayout) findViewById(R.id.miniAdLinearLayout);
 
 		btn_URL.setOnClickListener(new OnClickListener() {
 
@@ -74,7 +85,7 @@ public class ShowActivity extends BaseActivity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				playVibrate();
-				Toast.makeText(ShowActivity.this, "本软件由腾讯广点通平台赞助支持！", 1).show();
+				Toast.makeText(ShowActivity.this, "本软件由多米广告赞助支持！", 1).show();
 				showInterstitialAd(ShowActivity.this);
 
 				Intent intent = new Intent();
@@ -141,17 +152,23 @@ public class ShowActivity extends BaseActivity {
 
 	public void showInterstitialAd(Activity activity) {
 
-		
-
 	}
 
 	public void showBannerAD() {
-		
+		// 实例化广告条
+		AdView adView = new AdView(this, AdSize.FIT_SCREEN);
+
+		// 获取要嵌入广告条的布局
+		LinearLayout adLayout=(LinearLayout)findViewById(R.id.linearLayout);
+
+		// 将广告条加入到布局中
+		adLayout.addView(adView);
 	}
 
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
 		super.onDestroy();
+		OffersManager.getInstance(this).onAppExit();
 	}
 }

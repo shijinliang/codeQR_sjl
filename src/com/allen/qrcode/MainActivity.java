@@ -1,5 +1,7 @@
 package com.allen.qrcode;
 
+import net.youmi.android.AdManager;
+import net.youmi.android.offers.OffersManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,6 +29,8 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+		
 	}
 
 	@Override

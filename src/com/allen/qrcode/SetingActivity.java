@@ -1,5 +1,8 @@
 ﻿package com.allen.qrcode;
 
+import net.youmi.android.offers.OffersManager;
+import net.youmi.android.spot.SpotDialogListener;
+import net.youmi.android.spot.SpotManager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -54,6 +57,28 @@ public class SetingActivity extends BaseActivity {
 		leftMenuAdapter = new LeftMenuAdapter();
 		ListView.setAdapter(leftMenuAdapter);
 		ListView.setOnItemClickListener(leftMenuOnClick);
+		
+		
+		SpotManager.getInstance(SetingActivity.this).showSpotAds(SetingActivity.this, new SpotDialogListener() {
+			
+			@Override
+			public void onSpotClosed() {
+				// TODO Auto-generated method stub
+				//Toast.makeText(MainActivity.this, "展示关闭", 1).show();
+			}
+			
+			@Override
+			public void onShowSuccess() {
+				// TODO Auto-generated method stub
+				//Toast.makeText(MainActivity.this, "展示成功", 1).show();
+			}
+			
+			@Override
+			public void onShowFailed() {
+				// TODO Auto-generated method stub
+				//Toast.makeText(MainActivity.this, "展示失败", 1).show();
+			}
+		});
 
 	}
 
@@ -71,7 +96,7 @@ public class SetingActivity extends BaseActivity {
 				sendEmail(SetingActivity.this);
 				break;
 			case 1:
-				
+				OffersManager.getInstance(SetingActivity.this).showOffersWall();
 
 				break;
 			/*case 2:
