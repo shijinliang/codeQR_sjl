@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allen.myqrcode.R;
-import com.qq.e.appwall.GdtAppwall;
 
 public class SetingActivity extends BaseActivity {
 	ListView ListView;
@@ -72,14 +71,7 @@ public class SetingActivity extends BaseActivity {
 				sendEmail(SetingActivity.this);
 				break;
 			case 1:
-				/*
-				 * 创建应用墙广告 “appid” 指在 http://e.qq.com/dev/ 能看到的app唯一字符串 “posid”
-				 * 指在 http://e.qq.com/dev/ 生成的数字串， 并非 appid 或者 appkey testad
-				 * 如果设置为true，则进入测试广告模式。该广告模式下不扣费。 建议在调式时设置为true，发布前设置为false。
-				 */
-				final GdtAppwall appwall = new GdtAppwall(SetingActivity.this,
-						Constants.APPId, Constants.YYQPosId, false);
-				appwall.doShowAppWall();
+				
 
 				break;
 			/*case 2:

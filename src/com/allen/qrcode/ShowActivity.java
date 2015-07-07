@@ -16,20 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allen.myqrcode.R;
-import com.qq.e.ads.AdListener;
-import com.qq.e.ads.AdRequest;
-import com.qq.e.ads.AdSize;
-import com.qq.e.ads.AdView;
-import com.qq.e.ads.InterstitialAd;
-import com.qq.e.ads.InterstitialAdListener;
 
 public class ShowActivity extends BaseActivity {
 	private TextView txt1, TV_show_type, iamgeTV;
 	private String message;
 	private Button btn_URL, btnMore, btn_TEXT;
 	private Bundle bundle;
-	private AdView bannerAD;
-	private InterstitialAd iad;
 
 	private LinearLayout miniLayout;
 
@@ -37,6 +29,8 @@ public class ShowActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show);
+		
+		
 
 		initView();
 		initIntent();
@@ -147,93 +141,12 @@ public class ShowActivity extends BaseActivity {
 
 	public void showInterstitialAd(Activity activity) {
 
-		iad = new InterstitialAd(activity, Constants.APPId,
-				Constants.InterteristalPosId);
-		iad.setAdListener(new InterstitialAdListener() {
-			@Override
-			public void onBack() {
-				// iad.loadAd();
-				Log.i("admsg:", "Intertistial AD Closed");
-			}
-
-			@Override
-			public void onFail() {
-				Log.i("admsg:", "Intertistial AD Load Fail");
-			}
-
-			@Override
-			public void onAdReceive() {
-				Log.i("admsg:", "Intertistial AD  ReadyToShow");
-
-				iad.show(ShowActivity.this);
-			}
-
-			@Override
-			public void onClicked() {
-				// 插屏广告发生点击时回调，由于点击去重等因素不能保证回调数量与联盟最终统计数量一致
-				Log.i("admsg:", "Intertistial AD Clicked");
-			}
-
-			@Override
-			public void onExposure() {
-				// 插屏广告曝光时的回调
-				Log.i("admsg:", "Intertistial AD Exposured");
-			}
-
-			@Override
-			public void onFail(int arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
-		iad.loadAd();
+		
 
 	}
 
 	public void showBannerAD() {
-		this.bannerAD = new AdView(this, AdSize.BANNER, Constants.APPId,
-				Constants.BannerPosId);
-		AdRequest adRequest = new AdRequest();
-		adRequest.setShowCloseBtn(true);
-		this.bannerAD.setAdListener(new AdListener() {
-
-			@Override
-			public void onNoAd() {
-				Log.i("admsg:", "Banner AD LoadFail");
-			}
-
-			@Override
-			public void onBannerClosed() {
-				// 仅在开启广点通广告关闭按钮时生效
-				Log.i("admsg:", "Banner AD Closed");
-			}
-
-			@Override
-			public void onAdReceiv() {
-				Log.i("admsg:", "Banner AD Ready to show");
-			}
-
-			@Override
-			public void onAdExposure() {
-				Log.i("admsg:", "Banner AD Exposured");
-			}
-
-			@Override
-			public void onAdClicked() {
-				// Banner广告发生点击时回调，由于点击去重等因素不能保证回调数量与联盟最终统计数量一致
-				Log.i("admsg:", "Banner AD Clicked");
-			}
-
-			@Override
-			public void onNoAd(int arg0) {
-				// TODO Auto-generated method stub
-
-			}
-		});
-		this.miniLayout.removeAllViews();
-		this.miniLayout.addView(bannerAD);
-
-		bannerAD.fetchAd(adRequest);
+		
 	}
 
 	@Override
