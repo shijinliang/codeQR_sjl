@@ -179,7 +179,24 @@ public final class CaptureActivity extends Activity implements
 		String time = simpleDateFormat.format(new Date());
 		dbUtil = new DatabaseUtil(this);
 		dbUtil.open();
-		dbUtil.createLocation(msg, time);
+		
+		Cursor cursor = dbUtil.fetchAllLocation();
+		boolean isHave = false;
+		if(cursor!=null)
+		{
+			while(cursor.moveToNext())
+			{
+				if( cursor.getString(1) == msg )
+				{
+					isHave = true;
+					break;
+				}
+			}
+		}
+		if(!isHave){
+			dbUtil.createLocation(msg, time);
+		}
+		
 		dbUtil.close();
 	}
 
