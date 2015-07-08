@@ -165,7 +165,7 @@ public final class CaptureActivityHandler extends Handler {
     if (state == State.SUCCESS) {
       state = State.PREVIEW;
       cameraManager.requestPreviewFrame(decodeThread.getHandler(), R.id.decode);
-      activity.drawViewfinder();
+      //activity.drawViewfinder();
     }
   }
 

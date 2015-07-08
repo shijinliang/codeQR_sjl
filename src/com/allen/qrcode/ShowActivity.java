@@ -63,7 +63,7 @@ public class ShowActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				Intent urlIntent = new Intent("android.intent.action.VIEW", Uri
 						.parse(message));
 				startActivity(urlIntent);
@@ -75,7 +75,7 @@ public class ShowActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				copy(message, ShowActivity.this);
 			}
 		});
@@ -84,7 +84,7 @@ public class ShowActivity extends BaseActivity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				Toast.makeText(ShowActivity.this, "本软件由多米广告赞助支持！", 1).show();
 				showInterstitialAd(ShowActivity.this);
 
@@ -135,14 +135,14 @@ public class ShowActivity extends BaseActivity {
 	}
 
 	private static final long VIBRATE_DURATION = 50;
-
+/*
 	private void playVibrate() {
 
 		Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 		vibrator.vibrate(VIBRATE_DURATION);
 
 	}
-
+*/
 	public static void copy(String str, Context context) {
 		// 得到剪贴板管理器
 		ClipboardManager cmb = (ClipboardManager) context

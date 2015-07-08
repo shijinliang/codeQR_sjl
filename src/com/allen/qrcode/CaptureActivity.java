@@ -98,7 +98,7 @@ public final class CaptureActivity extends Activity implements
 	 */
 	private String photoPath;
 
-	private Handler mHandler = new MyHandler(this);
+	//private Handler mHandler = new MyHandler(this);
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -129,7 +129,7 @@ public final class CaptureActivity extends Activity implements
 		btn_lamp.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				playVibrate();
+				//playVibrate();
 				// ���ص�
 				if (isTorchOn) {
 					isTorchOn = false;
@@ -145,7 +145,7 @@ public final class CaptureActivity extends Activity implements
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				Intent intent = new Intent();
 				intent.setClass(CaptureActivity.this, HistoryActivity.class);
 				startActivity(intent);
@@ -157,7 +157,7 @@ public final class CaptureActivity extends Activity implements
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				// ���ֻ��е����
 				Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT); // "android.intent.action.GET_CONTENT"
 				innerIntent.setType("image/*");
@@ -168,10 +168,10 @@ public final class CaptureActivity extends Activity implements
 			}
 		});
 
-		hasSurface = false;
-		inactivityTimer = new InactivityTimer(this);
-		beepManager = new BeepManager(this);
-		ambientLightManager = new AmbientLightManager(this);
+		//hasSurface = false;
+		//inactivityTimer = new InactivityTimer(this);
+		//beepManager = new BeepManager(this);
+		//ambientLightManager = new AmbientLightManager(this);
 		
 		
 		String msg = "www.baidu.com";
@@ -199,7 +199,7 @@ public final class CaptureActivity extends Activity implements
 		
 		dbUtil.close();
 	}
-
+/*
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onResume() {
@@ -293,18 +293,18 @@ public final class CaptureActivity extends Activity implements
 			savedResultToShow = null;
 		}
 	}
-
+*/
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-		if (!hasSurface) {
-			hasSurface = true;
-			initCamera(holder);
-		}
+		//if (!hasSurface) {
+		//	hasSurface = true;
+		//	initCamera(holder);
+		//}
 	}
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		hasSurface = false;
+		//hasSurface = false;
 	}
 
 	@Override
@@ -322,7 +322,7 @@ public final class CaptureActivity extends Activity implements
 		if (msg == null || "".equals(msg)) {
 			msg = "�޷�ʶ��";
 		}
-		playBeepSoundAndVibrate();// ɨ�������ʾ
+		//playBeepSoundAndVibrate();// ɨ�������ʾ
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");// �������ڸ�ʽ
 		String time = simpleDateFormat.format(new Date());
 		dbUtil = new DatabaseUtil(this);
@@ -340,7 +340,7 @@ public final class CaptureActivity extends Activity implements
 	 * ɨ�������ʾ
 	 */
 	private static final long VIBRATE_DURATION = 50;
-
+/*
 	private void playBeepSoundAndVibrate() {
 
 		if (vibrate) {
@@ -576,7 +576,7 @@ public final class CaptureActivity extends Activity implements
 		intent.putExtras(bundle);
 		startActivity(intent);
 	}
-	
+	*/
 	/*
 	 * ����ͼƬ
 	 */

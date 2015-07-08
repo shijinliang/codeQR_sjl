@@ -1,5 +1,8 @@
 package com.allen.qrcode;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -28,15 +31,22 @@ public class HistoryActivity extends BaseActivity {
 	private Cursor cursor;
 	private DatabaseUtil dbUtil;
 	private int item_id, myposition = 0;
-	private boolean vibrate;// Õð¶¯
+	private boolean vibrate;// ï¿½ï¿½
 
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		
 		dbUtil = new DatabaseUtil(this);
 		dbUtil.open();
+		
+		String msg = "www.baidu.com";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½Ê½
+		String time = simpleDateFormat.format(new Date());
+		
+		dbUtil.createLocation(msg, time);
 		setContentView(R.layout.activity_history);
 		listView = (ListView) findViewById(R.id.listView1);
 		resultTV = (TextView) findViewById(R.id.textView_result);
@@ -96,7 +106,7 @@ public class HistoryActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				item_id = (int) id;
 				myposition = position;
-				final String[] mItems = { "É¾³ý" };
+				final String[] mItems = { "É¾ï¿½ï¿½" };
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						HistoryActivity.this);
 				builder.setItems(mItems, new DialogInterface.OnClickListener() {
