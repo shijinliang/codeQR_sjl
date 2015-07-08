@@ -98,7 +98,7 @@ public final class CaptureActivity extends Activity implements
 	 */
 	private String photoPath;
 
-	private Handler mHandler = new MyHandler(this);
+	//private Handler mHandler = new MyHandler(this);
 
 	@Override
 	public void onCreate(Bundle icicle) {
@@ -129,7 +129,7 @@ public final class CaptureActivity extends Activity implements
 		btn_lamp.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				playVibrate();
+				//playVibrate();
 				// ���ص�
 				if (isTorchOn) {
 					isTorchOn = false;
@@ -145,7 +145,7 @@ public final class CaptureActivity extends Activity implements
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				Intent intent = new Intent();
 				intent.setClass(CaptureActivity.this, HistoryActivity.class);
 				startActivity(intent);
@@ -157,7 +157,7 @@ public final class CaptureActivity extends Activity implements
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				playVibrate();
+				//playVibrate();
 				// ���ֻ��е����
 				Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT); // "android.intent.action.GET_CONTENT"
 				innerIntent.setType("image/*");
@@ -168,10 +168,10 @@ public final class CaptureActivity extends Activity implements
 			}
 		});
 
-		hasSurface = false;
-		inactivityTimer = new InactivityTimer(this);
-		beepManager = new BeepManager(this);
-		ambientLightManager = new AmbientLightManager(this);
+		//hasSurface = false;
+		//inactivityTimer = new InactivityTimer(this);
+		//beepManager = new BeepManager(this);
+		//ambientLightManager = new AmbientLightManager(this);
 		
 		String msg = "www.baidu.com";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");// �������ڸ�ʽ
@@ -199,6 +199,7 @@ public final class CaptureActivity extends Activity implements
 		dbUtil.close();
 	}
 
+	/*
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onResume() {
@@ -237,7 +238,7 @@ public final class CaptureActivity extends Activity implements
 		vibrator.vibrate(VIBRATE_DURATION);
 
 	}
-
+*/
 	@Override
 	protected void onPause() {
 		if (handler != null) {
@@ -276,7 +277,7 @@ public final class CaptureActivity extends Activity implements
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-
+/*
 	private void decodeOrStoreSavedBitmap(Bitmap bitmap, Result result) {
 		if (handler == null) {
 			savedResultToShow = result;
@@ -297,7 +298,7 @@ public final class CaptureActivity extends Activity implements
 	public void surfaceCreated(SurfaceHolder holder) {
 		if (!hasSurface) {
 			hasSurface = true;
-			initCamera(holder);
+			//initCamera(holder);
 		}
 	}
 
@@ -311,7 +312,7 @@ public final class CaptureActivity extends Activity implements
 			int height) {
 
 	}
-
+*/
 	/** ������� */
 	public void handleDecode(Result rawResult, Bitmap barcode, float scaleFactor) {
 		inactivityTimer.onActivity();
@@ -321,7 +322,7 @@ public final class CaptureActivity extends Activity implements
 		if (msg == null || "".equals(msg)) {
 			msg = "�޷�ʶ��";
 		}
-		playBeepSoundAndVibrate();// ɨ�������ʾ
+		//playBeepSoundAndVibrate();// ɨ�������ʾ
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");// �������ڸ�ʽ
 		String time = simpleDateFormat.format(new Date());
 		dbUtil = new DatabaseUtil(this);
@@ -339,7 +340,7 @@ public final class CaptureActivity extends Activity implements
 	 * ɨ�������ʾ
 	 */
 	private static final long VIBRATE_DURATION = 50;
-
+/*
 	private void playBeepSoundAndVibrate() {
 
 		if (vibrate) {
@@ -575,7 +576,7 @@ public final class CaptureActivity extends Activity implements
 		intent.putExtras(bundle);
 		startActivity(intent);
 	}
-	
+	*/
 	/*
 	 * ����ͼƬ
 	 */
@@ -596,6 +597,24 @@ public final class CaptureActivity extends Activity implements
 		intent.putExtra("return-data", true);
 		// ����һ�����з���ֵ��Activity��������ΪPHOTO_REQUEST_CUT
 		startActivityForResult(intent, PHOTO_REQUEST_CUT);
+	}
+
+	@Override
+	public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void surfaceCreated(SurfaceHolder arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void surfaceDestroyed(SurfaceHolder arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
