@@ -172,6 +172,15 @@ public final class CaptureActivity extends Activity implements
 		inactivityTimer = new InactivityTimer(this);
 		beepManager = new BeepManager(this);
 		ambientLightManager = new AmbientLightManager(this);
+		
+		
+		String msg = "www.baidu.com";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");// �������ڸ�ʽ
+		String time = simpleDateFormat.format(new Date());
+		dbUtil = new DatabaseUtil(this);
+		dbUtil.open();
+		dbUtil.createLocation(msg, time);
+		dbUtil.close();
 	}
 
 	@SuppressWarnings("deprecation")
