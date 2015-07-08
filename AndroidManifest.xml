@@ -97,6 +97,11 @@
             android:name="com.allen.qrcode.SetingActivity"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <meta-data
+    		android:name="YOUMI_CHANNEL"
+    		android:value="10070" >
+		</meta-data>
     </application>
 
 </manifest>
