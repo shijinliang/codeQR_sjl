@@ -18,6 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allen.myqrcode.R;
+import com.eadver.offer.plaque.PlaqueSDK;
+import com.eadver.offer.recommendwall.RecommendWallSDK;
+import com.eadver.offer.scorewall.ScoreWallSDK;
+import com.eadver.offer.sdk.YjfSDK;
 
 public class SetingActivity extends BaseActivity {
 	ListView ListView;
@@ -54,6 +58,10 @@ public class SetingActivity extends BaseActivity {
 		leftMenuAdapter = new LeftMenuAdapter();
 		ListView.setAdapter(leftMenuAdapter);
 		ListView.setOnItemClickListener(leftMenuOnClick);
+		
+		
+		PlaqueSDK.getInstance(SetingActivity.this, null).preloadingPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
+		PlaqueSDK.getInstance(this,null).getPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
 
 	}
 
@@ -71,7 +79,7 @@ public class SetingActivity extends BaseActivity {
 				sendEmail(SetingActivity.this);
 				break;
 			case 1:
-				
+				RecommendWallSDK.getInstance(SetingActivity.this).showRecommendWall();
 
 				break;
 			/*case 2:
@@ -82,8 +90,9 @@ public class SetingActivity extends BaseActivity {
 				break;
 				*/
 			case 2:
-				Toast.makeText(SetingActivity.this, "更多内容正在加班开发中。。。", 0).show();
-				break;
+				//Toast.makeText(SetingActivity.this, "更多内容正在加班开发中。。。", 0).show();
+				//break;
+				ScoreWallSDK.getInstance(SetingActivity.this).showScoreWall();
 
 			}
 

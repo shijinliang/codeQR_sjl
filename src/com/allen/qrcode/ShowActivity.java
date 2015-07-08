@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.allen.myqrcode.R;
+import com.eadver.offer.banner.BannerSDK;
+import com.eadver.offer.sdk.YjfSDK;
+import com.eadver.offer.sdk.view.BannerView;
 
 public class ShowActivity extends BaseActivity {
 	private TextView txt1, TV_show_type, iamgeTV;
@@ -30,7 +33,10 @@ public class ShowActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show);
 		
-		
+		YjfSDK.getInstance(this, null).initInstance( "77135","EM6ZEUTKPJ9XKP3V4NYMUFH4YJYHSXNA47", "85247","" );
+		YjfSDK.getInstance(this, null).setCoopInfo(null);
+		//通知栏上通知当天的新任务和可完成任务的个数
+		YjfSDK.getInstance(this, null).setDoNotify(false);
 
 		initView();
 		initIntent();
@@ -146,12 +152,16 @@ public class ShowActivity extends BaseActivity {
 	}
 
 	public void showBannerAD() {
-		
+		BannerView bannerView = BannerSDK.getInstance(this).getBanner();
+		LinearLayout adLayout = (LinearLayout)findViewById(R.id.linearLayout);
+		BannerSDK.getInstance(this,null).showBanner(bannerView);
 	}
 
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
+		YjfSDK.getInstance(this, null).recordAppClose();
 		super.onDestroy();
+		
 	}
 }
