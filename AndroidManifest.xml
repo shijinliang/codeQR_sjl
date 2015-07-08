@@ -100,7 +100,7 @@
         
         <meta-data
     		android:name="YOUMI_CHANNEL"
-    		android:value="10070" >
+    		android:value="10020" >
 		</meta-data>
     </application>
 
