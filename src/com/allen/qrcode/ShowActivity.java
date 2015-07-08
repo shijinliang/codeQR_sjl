@@ -80,7 +80,7 @@ public class ShowActivity extends BaseActivity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				playVibrate();
-				Toast.makeText(ShowActivity.this, "本软件由腾讯广点通平台赞助支持！", 1).show();
+				Toast.makeText(ShowActivity.this, "本软件由易积分平台赞助支持！", 1).show();
 				showInterstitialAd(ShowActivity.this);
 
 				Intent intent = new Intent();
