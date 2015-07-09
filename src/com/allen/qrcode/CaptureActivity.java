@@ -185,7 +185,7 @@ public final class CaptureActivity extends Activity implements
 		{
 			while(cursor.moveToNext())
 			{
-				if( cursor.getString(1) == msg )
+				if( cursor.getString(1).equals(msg) )
 				{
 					isHave = true;
 					break;
