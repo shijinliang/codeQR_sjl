@@ -12,7 +12,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 
 public final class BeepManager {
 

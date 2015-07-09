@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 
 public class SuccessTickView extends View {
     private float mDensity = -1;

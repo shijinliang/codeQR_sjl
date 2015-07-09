@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.liang.myqrcode"
+    package="com.ld_liang.myqrcode"
     android:versionCode="7"
     android:versionName="2.0" >
 
@@ -9,16 +9,22 @@
         android:targetSdkVersion="10" />
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
     <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -44,10 +50,11 @@
     <!-- This excludes Google TV, which is unfortunately included by virtue of not requiring a camera -->
     <uses-feature android:name="android.hardware.touchscreen" />
     <!-- TODO make this not required again after android.hardware.camera.any is available -->
+    
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/app_icon_barcode"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
 
@@ -78,6 +85,27 @@
             android:name="com.allen.qrcode.SetingActivity"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <activity android:name="com.lerdian.wall.MainActivity" >
+        </activity>
+        <activity android:name="com.lerdian.wall.DetailActivity" />
+        <activity android:name="com.lerdian.wall.point.DetailActivity" />
+        <activity android:name="com.lerdian.search.SearchResult" />
+        <activity android:name="com.lerdian.wall.point.FeedbackActivity" />
+        <activity android:name="com.lerdian.wall.point.StateActivity" />
+        <activity android:name="com.lerdian.wall.point.MainActivity" >
+        </activity>
+
+        <service android:name="com.lerdian.wall.point.DetailService" >
+            <intent-filter>
+                <action android:name="com.lerdian.wall.point.DetailService" />
+            </intent-filter>
+        </service>
+        
+        <meta-data
+            android:name="LERDIAN_CHANNEL"
+            android:value="dbd83c93dff34c3191be5bf3a3f64f6e" />
+        <activity android:name="com.lerdian.advertisement.AdWebViewActivity" />
     </application>
 
 </manifest>

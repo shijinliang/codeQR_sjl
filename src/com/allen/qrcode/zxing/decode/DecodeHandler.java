@@ -27,7 +27,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.allen.qrcode.CaptureActivity;
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;

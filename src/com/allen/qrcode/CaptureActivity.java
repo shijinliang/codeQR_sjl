@@ -20,6 +20,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -32,7 +33,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 import com.allen.qrcode.db.DatabaseUtil;
 import com.allen.qrcode.zxing.camera.CameraManager;
 import com.allen.qrcode.zxing.control.AmbientLightManager;
@@ -185,8 +186,10 @@ public final class CaptureActivity extends Activity implements
 		{
 			while(cursor.moveToNext())
 			{
-				if( cursor.getString(1) == msg )
+				Log.e("msg", cursor.getString(1).toString());
+				if( cursor.getString(1).equals(msg) )
 				{
+					Log.e("msg", "have");
 					isHave = true;
 					break;
 				}

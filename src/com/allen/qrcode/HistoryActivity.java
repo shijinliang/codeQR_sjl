@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 import com.allen.qrcode.db.DatabaseUtil;
 
 public class HistoryActivity extends BaseActivity {

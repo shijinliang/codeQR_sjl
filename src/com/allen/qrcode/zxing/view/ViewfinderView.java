@@ -16,7 +16,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 import com.allen.qrcode.zxing.camera.CameraManager;
 import com.google.zxing.ResultPoint;
 

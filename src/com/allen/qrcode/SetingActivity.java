@@ -17,7 +17,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.liang.myqrcode.R;
+import com.lerdian.advertisement.AdSpotManager;
+import com.lerdian.startmanager.RecommendManager;
+import com.ld_liang.myqrcode.R;
 
 public class SetingActivity extends BaseActivity {
 	ListView ListView;
@@ -54,6 +56,8 @@ public class SetingActivity extends BaseActivity {
 		leftMenuAdapter = new LeftMenuAdapter();
 		ListView.setAdapter(leftMenuAdapter);
 		ListView.setOnItemClickListener(leftMenuOnClick);
+		
+		AdSpotManager.getInstance(this).showSpot(true);
 
 	}
 
@@ -71,7 +75,7 @@ public class SetingActivity extends BaseActivity {
 				sendEmail(SetingActivity.this);
 				break;
 			case 1:
-				
+				RecommendManager.getInstance(SetingActivity.this).openRecommend(SetingActivity.this);
 
 				break;
 			/*case 2:

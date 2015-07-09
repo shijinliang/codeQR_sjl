@@ -15,7 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.liang.myqrcode.R;
+import com.lerdian.advertisement.AdBannerView;
+import com.lerdian.startmanager.AdBannerListener;
+import com.lerdian.startmanager.AdSizeManager;
+import com.lerdian.view.AdViewListener;
+import com.ld_liang.myqrcode.R;
 
 public class ShowActivity extends BaseActivity {
 	private TextView txt1, TV_show_type, iamgeTV;
@@ -45,7 +49,7 @@ public class ShowActivity extends BaseActivity {
 		btnMore = (Button) findViewById(R.id.btn_set);
 		iamgeTV = (TextView) findViewById(R.id.image_title);
 
-		miniLayout = (LinearLayout) findViewById(R.id.miniAdLinearLayout);
+		//miniLayout = (LinearLayout) findViewById(R.id.miniAdLinearLayout);
 
 		btn_URL.setOnClickListener(new OnClickListener() {
 
@@ -74,7 +78,7 @@ public class ShowActivity extends BaseActivity {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				playVibrate();
-				Toast.makeText(ShowActivity.this, "本软件由腾讯广点通平台赞助支持！", 1).show();
+				Toast.makeText(ShowActivity.this, "本软件由乐点移动广告平台赞助支持！", 1).show();
 				showInterstitialAd(ShowActivity.this);
 
 				Intent intent = new Intent();
@@ -87,8 +91,9 @@ public class ShowActivity extends BaseActivity {
 	private void initIntent() {
 		bundle = getIntent().getExtras();
 		message = bundle.getString("msg");
+		this.showBannerAD();
 		if (isURL(message)) {
-			this.showBannerAD();
+			
 			TV_show_type.setText("网址:");
 			iamgeTV.setBackgroundResource(R.drawable.url72);
 			btn_URL.setVisibility(View.VISIBLE);
@@ -146,7 +151,30 @@ public class ShowActivity extends BaseActivity {
 	}
 
 	public void showBannerAD() {
+		AdBannerView adView = new AdBannerView(this,AdSizeManager.WRAP_CONTENT,true);
+		LinearLayout adLayout = (LinearLayout)findViewById(R.id.linearLayout);
+		adLayout.addView(adView);
 		
+		adView.setAdListener(new AdViewListener() {
+			
+			@Override
+			public void onSwitchAd(AdBannerView arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onReceivedAdFinished(AdBannerView arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onFailedReceivedAd(AdBannerView arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 	@Override

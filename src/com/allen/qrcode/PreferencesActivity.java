@@ -25,7 +25,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import com.liang.myqrcode.R;
+import com.ld_liang.myqrcode.R;
 
 /**
  * The main settings activity.
