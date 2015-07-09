@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,6 +43,7 @@ public class SetingActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		PlaqueSDK.getInstance(SetingActivity.this, null).preloadingPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
 		setContentView(R.layout.seting);
 		imageView = (ImageView) findViewById(R.id.btn_back);
 		imageView.setOnClickListener(new OnClickListener() {
@@ -60,8 +62,13 @@ public class SetingActivity extends BaseActivity {
 		ListView.setOnItemClickListener(leftMenuOnClick);
 		
 		
-		PlaqueSDK.getInstance(SetingActivity.this, null).preloadingPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
-		PlaqueSDK.getInstance(this,null).getPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
+		//new Handler().postDelayed(new Runnable(){
+			//public void run()
+			//{
+				PlaqueSDK.getInstance(SetingActivity.this,null).getPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
+			//}
+		//}, 5);
+		
 
 	}
 

@@ -7,11 +7,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -153,9 +157,26 @@ public class ShowActivity extends BaseActivity {
 
 	public void showBannerAD() {
 		Log.e("msg", "banner");
+		DisplayMetrics metrics = new DisplayMetrics();
+		WindowManager windowManager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
+		windowManager.getDefaultDisplay().getMetrics(metrics);
+		
+		int destBannerWidth = Math.min(metrics.widthPixels, metrics.heightPixels);
+		
+		LinearLayout bannerLayout = new LinearLayout(this);
+		LinearLayout.LayoutParams bannerLayoutParas = new LinearLayout.LayoutParams(destBannerWidth, LayoutParams.WRAP_CONTENT);
+		bannerLayoutParas.gravity = Gravity.LEFT;
+		bannerLayout.setLayoutParams(bannerLayoutParas);
+		
 		BannerView bannerView = BannerSDK.getInstance(this).getBanner();
-		LinearLayout adLayout = (LinearLayout)findViewById(R.id.linearLayout);
+		bannerLayout.addView(bannerView);
+		
 		BannerSDK.getInstance(this,null).showBanner(bannerView);
+		
+		LinearLayout adLayout = (LinearLayout)findViewById(R.id.linearLayout);
+		
+		adLayout.addView(bannerLayout);
+		
 		
 		Log.e("msg", "bannerFinish");
 	}

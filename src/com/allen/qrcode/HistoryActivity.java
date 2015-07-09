@@ -1,5 +1,8 @@
 package com.allen.qrcode;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -35,6 +38,31 @@ public class HistoryActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		String msg = "www.baidu.com";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");// �������ڸ�ʽ
+		String time = simpleDateFormat.format(new Date());
+		dbUtil = new DatabaseUtil(this);
+		dbUtil.open();
+		
+		Cursor c = dbUtil.fetchAllLocation();
+		boolean isHave = false;
+		if(c!=null)
+		{
+			while(c.moveToNext())
+			{
+				if( c.getString(1).equals(msg) )
+				{
+					isHave = true;
+					break;
+				}
+			}
+		}
+		if(!isHave){
+			dbUtil.createLocation(msg, time);
+		}
+		
+		dbUtil.close();
+		
 		dbUtil = new DatabaseUtil(this);
 		dbUtil.open();
 		setContentView(R.layout.activity_history);
