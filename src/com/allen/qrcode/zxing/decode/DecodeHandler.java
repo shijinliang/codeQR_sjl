@@ -27,7 +27,7 @@ import android.os.Message;
 import android.util.Log;
 
 import com.allen.qrcode.CaptureActivity;
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.DecodeHintType;
 import com.google.zxing.MultiFormatReader;
@@ -82,7 +82,7 @@ final class DecodeHandler extends Handler {
 		long start = System.currentTimeMillis();
 		Result rawResult = null;
 
-		/* ÊúÆÁÐÞ¸Ä */
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ */
 		byte[] rotatedData = new byte[data.length];
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++)

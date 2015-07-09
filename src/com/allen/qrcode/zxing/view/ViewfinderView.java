@@ -16,20 +16,20 @@ import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.allen.qrcode.zxing.camera.CameraManager;
 import com.google.zxing.ResultPoint;
 
 public final class ViewfinderView extends View {
 	/**
-	 * ×ÖÌå´óÐ¡
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡
 	 */
 	private static final int TEXT_SIZE = 16;
 	/**
-	 * ÊÖ»úµÄÆÁÄ»ÃÜ¶È
+	 * ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½Ü¶ï¿½
 	 */
 	/**
-	 * ×ÖÌå¾àÀëÉ¨Ãè¿òÏÂÃæµÄ¾àÀë
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
 	 */
 	private static final int TEXT_PADDING_TOP = 30;
 	private static float density;
@@ -46,10 +46,10 @@ public final class ViewfinderView extends View {
 	private int scannerAlpha;
 	private List<ResultPoint> possibleResultPoints;
 
-	private int i = 0;// Ìí¼ÓµÄ
-	private Rect mRect;// É¨ÃèÏßÌî³ä±ß½ç
-	private GradientDrawable mDrawable;// ²ÉÓÃ½¥±äÍ¼×÷ÎªÉ¨ÃèÏß
-	private Drawable lineDrawable;// ²ÉÓÃÍ¼Æ¬×÷ÎªÉ¨ÃèÏß
+	private int i = 0;// ï¿½ï¿½Óµï¿½
+	private Rect mRect;// É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½
+	private GradientDrawable mDrawable;// ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ÎªÉ¨ï¿½ï¿½ï¿½ï¿½
+	private Drawable lineDrawable;// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ÎªÉ¨ï¿½ï¿½ï¿½ï¿½
 
 	public ViewfinderView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -59,7 +59,7 @@ public final class ViewfinderView extends View {
 		maskColor = resources.getColor(R.color.viewfinder_mask);
 		resultColor = resources.getColor(R.color.result_view);
 
-		// GradientDrawable¡¢lineDrawable
+		// GradientDrawableï¿½ï¿½lineDrawable
 		mRect = new Rect();
 		int left = getResources().getColor(R.color.lightgreen);
 		int center = getResources().getColor(R.color.green);
@@ -91,98 +91,98 @@ public final class ViewfinderView extends View {
 		int width = canvas.getWidth();
 		int height = canvas.getHeight();
 
-		// »­É¨Ãè¿òÍâ²¿µÄ°µÉ«±³¾°
-		// ÉèÖÃÃÉ°åÑÕÉ«
+		// ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½â²¿ï¿½Ä°ï¿½É«ï¿½ï¿½ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½É°ï¿½ï¿½ï¿½É«
 		paint.setColor(resultBitmap != null ? resultColor : maskColor);
-		// Í·²¿
+		// Í·ï¿½ï¿½
 		canvas.drawRect(0, 0, width, frame.top, paint);
-		// ×ó±ß
+		// ï¿½ï¿½ï¿½
 		canvas.drawRect(0, frame.top, frame.left, frame.bottom, paint);
-		// ÓÒ±ß
+		// ï¿½Ò±ï¿½
 		canvas.drawRect(frame.right, frame.top, width, frame.bottom, paint);
-		// µ×²¿
+		// ï¿½×²ï¿½
 		canvas.drawRect(0, frame.bottom, width, height, paint);
-//		// Í·²¿
+//		// Í·ï¿½ï¿½
 //				canvas.drawRect(0, 0, width, frame.top+100, paint);
-//				// ×ó±ß
+//				// ï¿½ï¿½ï¿½
 //				canvas.drawRect(0, frame.top+100, frame.left-150, frame.bottom+300, paint);
-//				// ÓÒ±ß
+//				// ï¿½Ò±ï¿½
 //				canvas.drawRect(frame.right+150, frame.top+100, width, frame.bottom+300, paint);
-//				// µ×²¿
+//				// ï¿½×²ï¿½
 //				canvas.drawRect(0, frame.bottom+300, width, height, paint);
 
 		if (resultBitmap != null) {
-			// ÔÚÉ¨Ãè¿òÖÐ»­³öÔ¤ÀÀÍ¼
+			// ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½Í¼
 			paint.setAlpha(CURRENT_POINT_OPACITY);
 			canvas.drawBitmap(resultBitmap, null, frame, paint);
 		} else {
-			// »­³öËÄ¸ö½Ç
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 			paint.setColor(getResources().getColor(R.color.green));
 
 			canvas.drawRect(frame.left, frame.top, frame.left + 50,
 					frame.top + 5, paint);
 			canvas.drawRect(frame.left, frame.top, frame.left + 5,
 					frame.top + 50, paint);
-			// ÓÒÉÏ½Ç
+			// ï¿½ï¿½ï¿½Ï½ï¿½
 			canvas.drawRect(frame.right - 50, frame.top, frame.right,
 					frame.top + 5, paint);
 			canvas.drawRect(frame.right - 5, frame.top, frame.right,
 					frame.top + 50, paint);
-			// ×óÏÂ½Ç
+			// ï¿½ï¿½ï¿½Â½ï¿½
 			canvas.drawRect(frame.left, frame.bottom - 5, frame.left + 50,
 					frame.bottom, paint);
 			canvas.drawRect(frame.left, frame.bottom - 50, frame.left + 5,
 					frame.bottom, paint);
-			// ÓÒÏÂ½Ç
+			// ï¿½ï¿½ï¿½Â½ï¿½
 			canvas.drawRect(frame.right - 50, frame.bottom - 5, frame.right,
 					frame.bottom, paint);
 			canvas.drawRect(frame.right - 5, frame.bottom - 50, frame.right,
 					frame.bottom, paint);
 
-			// ÔÚÉ¨Ãè¿òÖÐ»­³öÄ£ÄâÉ¨ÃèµÄÏßÌõ
-			// ÉèÖÃÉ¨ÃèÏßÌõÑÕÉ«ÎªÂÌÉ«
+			// ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½Ä£ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			// ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Îªï¿½ï¿½É«
 			paint.setColor(getResources().getColor(R.color.green));
-			// ÉèÖÃÂÌÉ«ÏßÌõµÄÍ¸Ã÷Öµ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½Öµ
 			paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
-			// Í¸Ã÷¶È±ä»¯
+			// Í¸ï¿½ï¿½ï¿½È±ä»¯
 			scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
 
-			// »­³ö¹Ì¶¨ÔÚÖÐ²¿µÄÏßÌõ
+			// ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			// int middle = frame.height() / 2 + frame.top;
 			// canvas.drawRect(frame.left + 2, middle - 1, frame.right - 1,
 			// middle + 2, paint);
 
-			// ½«É¨ÃèÏßÐÞ¸ÄÎªÉÏÏÂ×ßµÄÏß
+			// ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½
 			if ((i += 6) < frame.bottom - frame.top) {
-				/* ÒÔÏÂÎªÓÃ½¥±äÏßÌõ×÷ÎªÉ¨ÃèÏß */
-				// ½¥±äÍ¼Îª¾ØÐÎ
+				/* ï¿½ï¿½ï¿½ï¿½Îªï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÉ¨ï¿½ï¿½ï¿½ï¿½ */
+				// ï¿½ï¿½ï¿½ï¿½Í¼Îªï¿½ï¿½ï¿½ï¿½
 				// mDrawable.setShape(GradientDrawable.RECTANGLE);
-				// ½¥±äÍ¼ÎªÏßÐÍ
+				// ï¿½ï¿½ï¿½ï¿½Í¼Îªï¿½ï¿½ï¿½ï¿½
 				// mDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-				// ÏßÐÍ¾ØÐÎµÄËÄ¸öÔ²½Ç°ë¾¶
+				// ï¿½ï¿½ï¿½Í¾ï¿½ï¿½Îµï¿½ï¿½Ä¸ï¿½Ô²ï¿½Ç°ë¾¶
 				// mDrawable
 				// .setCornerRadii(new float[] { 8, 8, 8, 8, 8, 8, 8, 8 });
-				// Î»ÖÃ±ß½ç
+				// Î»ï¿½Ã±ß½ï¿½
 				// mRect.set(frame.left + 10, frame.top + i, frame.right - 10,
 				// frame.top + 1 + i);
-				// ÉèÖÃ½¥±äÍ¼Ìî³ä±ß½ç
+				// ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ß½ï¿½
 				// mDrawable.setBounds(mRect);
-				// »­³ö½¥±äÏßÌõ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				// mDrawable.draw(canvas);
 
-				/* ÒÔÏÂÎªÍ¼Æ¬×÷ÎªÉ¨ÃèÏß */
+				/* ï¿½ï¿½ï¿½ï¿½ÎªÍ¼Æ¬ï¿½ï¿½ÎªÉ¨ï¿½ï¿½ï¿½ï¿½ */
 				mRect.set(frame.left - 6, frame.top + i - 6, frame.right + 6,
 						frame.top + 6 + i);
 				lineDrawable.setBounds(mRect);
 				lineDrawable.draw(canvas);
 
-				// Ë¢ÐÂ
+				// Ë¢ï¿½ï¿½
 				invalidate();
 			} else {
 				i = 0;
 			}
 
-			// »­É¨Ãè¿òÏÂÃæµÄ×Ö
+			// ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			paint.setColor(Color.WHITE);
 			paint.setTextSize(TEXT_SIZE * density);
 			paint.setAlpha(0x40);
@@ -193,7 +193,7 @@ public final class ViewfinderView extends View {
 					(float) (frame.bottom + (float) TEXT_PADDING_TOP * density),
 					paint);
 
-			// ÖØ¸´Ö´ÐÐÉ¨Ãè¿òÇøÓò»æÖÆ(»­ËÄ¸ö½Ç¼°É¨ÃèÏß)
+			// ï¿½Ø¸ï¿½Ö´ï¿½ï¿½É¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½Ç¼ï¿½É¨ï¿½ï¿½ï¿½ï¿½)
 			postInvalidateDelayed(ANIMATION_DELAY, frame.left, frame.top,
 					frame.right, frame.bottom);
 		}

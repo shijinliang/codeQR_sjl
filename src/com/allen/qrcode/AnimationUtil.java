@@ -13,7 +13,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.LayoutAnimationController;
 import android.view.animation.TranslateAnimation;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 /**
  * 

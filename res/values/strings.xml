@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">秒扫二维码</string>
+    <string name="app_name">快扫二维码</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>

@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.eadver.offer.banner.BannerSDK;
 import com.eadver.offer.sdk.YjfSDK;
 import com.eadver.offer.sdk.view.BannerView;

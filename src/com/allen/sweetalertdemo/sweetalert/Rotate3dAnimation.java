@@ -9,7 +9,7 @@ import android.util.TypedValue;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 public class Rotate3dAnimation extends Animation {
 	private int mPivotXType = ABSOLUTE;

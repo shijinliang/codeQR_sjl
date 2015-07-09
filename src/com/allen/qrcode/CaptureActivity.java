@@ -32,7 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.allen.qrcode.db.DatabaseUtil;
 import com.allen.qrcode.zxing.camera.CameraManager;
 import com.allen.qrcode.zxing.control.AmbientLightManager;

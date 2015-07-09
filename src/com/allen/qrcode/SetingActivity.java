@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.eadver.offer.plaque.PlaqueSDK;
 import com.eadver.offer.recommendwall.RecommendWallSDK;
 import com.eadver.offer.scorewall.ScoreWallSDK;

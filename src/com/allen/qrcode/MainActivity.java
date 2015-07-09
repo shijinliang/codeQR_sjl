@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.eadver.offer.sdk.YjfSDK;
 
 public class MainActivity extends Activity {
