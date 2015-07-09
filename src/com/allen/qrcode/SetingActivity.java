@@ -62,12 +62,12 @@ public class SetingActivity extends BaseActivity {
 		ListView.setOnItemClickListener(leftMenuOnClick);
 		
 		
-		//new Handler().postDelayed(new Runnable(){
-			//public void run()
-			//{
+		new Handler().postDelayed(new Runnable(){
+			public void run()
+			{
 				PlaqueSDK.getInstance(SetingActivity.this,null).getPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
-			//}
-		//}, 5);
+			}
+		}, 5);
 		
 
 	}
