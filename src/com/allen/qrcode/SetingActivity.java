@@ -67,7 +67,7 @@ public class SetingActivity extends BaseActivity {
 			{
 				PlaqueSDK.getInstance(SetingActivity.this,null).getPlaque(YjfSDK.ADIMAGE_FLAG_PLAQUE_VERTICAL);
 			}
-		}, 5);
+		}, 5000);
 		
 
 	}
