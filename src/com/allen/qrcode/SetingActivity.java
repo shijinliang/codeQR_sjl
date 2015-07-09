@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 public class SetingActivity extends BaseActivity {
 	ListView ListView;

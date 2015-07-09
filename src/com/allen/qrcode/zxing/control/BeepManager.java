@@ -12,7 +12,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 public final class BeepManager {
 
@@ -33,11 +33,11 @@ public final class BeepManager {
 	}
 
 	public void updatePrefs() {
-		/* ÅäÖÃÐÞ¸Ä */
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ */
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(activity);
 		playBeep = shouldBeep(prefs, activity);
-		vibrate = false;// ²»Õð¶¯
+		vibrate = false;// ï¿½ï¿½ï¿½ï¿½
 		// vibrate = prefs.getBoolean(PreferencesActivity.KEY_VIBRATE, false);
 		if (playBeep && mediaPlayer == null) {
 			// The volume on STREAM_SYSTEM is not adjustable, and users found it
@@ -60,8 +60,8 @@ public final class BeepManager {
 	}
 
 	private static boolean shouldBeep(SharedPreferences prefs, Context activity) {
-		/* ÅäÖÃÐÞ¸Ä */
-		boolean shouldPlayBeep = true;// ÉùÒô
+		/* ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ */
+		boolean shouldPlayBeep = true;// ï¿½ï¿½ï¿½ï¿½
 		// boolean shouldPlayBeep = prefs.getBoolean(
 		// PreferencesActivity.KEY_PLAY_BEEP, true);
 

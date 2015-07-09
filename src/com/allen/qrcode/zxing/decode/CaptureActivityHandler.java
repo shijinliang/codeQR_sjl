@@ -34,7 +34,7 @@ import android.provider.Browser;
 import android.util.Log;
 
 import com.allen.qrcode.CaptureActivity;
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.allen.qrcode.zxing.camera.CameraManager;
 import com.allen.qrcode.zxing.view.ViewfinderResultPointCallback;
 import com.google.zxing.BarcodeFormat;

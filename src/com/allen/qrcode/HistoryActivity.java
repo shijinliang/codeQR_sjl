@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 import com.allen.qrcode.db.DatabaseUtil;
 
 public class HistoryActivity extends BaseActivity {
@@ -28,7 +28,7 @@ public class HistoryActivity extends BaseActivity {
 	private Cursor cursor;
 	private DatabaseUtil dbUtil;
 	private int item_id, myposition = 0;
-	private boolean vibrate;// Õð¶¯
+	private boolean vibrate;// ï¿½ï¿½
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -96,7 +96,7 @@ public class HistoryActivity extends BaseActivity {
 				// TODO Auto-generated method stub
 				item_id = (int) id;
 				myposition = position;
-				final String[] mItems = { "É¾³ý" };
+				final String[] mItems = { "É¾ï¿½ï¿½" };
 				AlertDialog.Builder builder = new AlertDialog.Builder(
 						HistoryActivity.this);
 				builder.setItems(mItems, new DialogInterface.OnClickListener() {

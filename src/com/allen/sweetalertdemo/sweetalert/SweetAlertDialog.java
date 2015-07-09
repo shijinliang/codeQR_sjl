@@ -18,7 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 public class SweetAlertDialog extends Dialog implements View.OnClickListener {
 	private View mDialogView;

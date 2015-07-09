@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 public class MainActivity extends Activity {
 	private Button button;

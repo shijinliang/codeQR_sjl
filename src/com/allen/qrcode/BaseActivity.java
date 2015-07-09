@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 //import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class BaseActivity extends Activity {

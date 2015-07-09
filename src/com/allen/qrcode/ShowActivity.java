@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.allen.myqrcode.R;
+import com.liang.myqrcode.R;
 
 public class ShowActivity extends BaseActivity {
 	private TextView txt1, TV_show_type, iamgeTV;
