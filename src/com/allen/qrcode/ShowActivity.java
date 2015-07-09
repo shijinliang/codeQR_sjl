@@ -51,7 +51,7 @@ public class ShowActivity extends BaseActivity {
 		btnMore = (Button) findViewById(R.id.btn_set);
 		iamgeTV = (TextView) findViewById(R.id.image_title);
 
-		miniLayout = (LinearLayout) findViewById(R.id.miniAdLinearLayout);
+		//miniLayout = (LinearLayout) findViewById(R.id.miniAdLinearLayout);
 
 		btn_URL.setOnClickListener(new OnClickListener() {
 
@@ -93,8 +93,8 @@ public class ShowActivity extends BaseActivity {
 	private void initIntent() {
 		bundle = getIntent().getExtras();
 		message = bundle.getString("msg");
+		this.showBannerAD();
 		if (isURL(message)) {
-			this.showBannerAD();
 			TV_show_type.setText("网址:");
 			iamgeTV.setBackgroundResource(R.drawable.url72);
 			btn_URL.setVisibility(View.VISIBLE);
@@ -152,9 +152,12 @@ public class ShowActivity extends BaseActivity {
 	}
 
 	public void showBannerAD() {
+		Log.e("msg", "banner");
 		BannerView bannerView = BannerSDK.getInstance(this).getBanner();
 		LinearLayout adLayout = (LinearLayout)findViewById(R.id.linearLayout);
 		BannerSDK.getInstance(this,null).showBanner(bannerView);
+		
+		Log.e("msg", "bannerFinish");
 	}
 
 	@Override
