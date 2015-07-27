@@ -163,7 +163,7 @@ public final class CaptureActivity extends Activity implements
 				Intent innerIntent = new Intent(Intent.ACTION_GET_CONTENT); // "android.intent.action.GET_CONTENT"
 				innerIntent.setType("image/*");
 				Intent wrapperIntent = Intent.createChooser(innerIntent,
-						"ѡ���ά��ͼƬ");
+						"请选择二维码图片");
 				CaptureActivity.this.startActivityForResult(wrapperIntent,
 						PHOTO_REQUEST_GALLERY);
 			}
